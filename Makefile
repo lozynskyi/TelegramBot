@@ -10,8 +10,8 @@ COMMIT_SHA=$(shell git rev-parse --short HEAD)
 .PHONY: build
 ## build: build the application (default for make file)
 build: clean
-	@echo "Building"
-	go build -o ./builds/${APP} -v ./cmd/bot
+	@echo " -- Building"
+	@go build -o ./build/${APP} -v ./cmd/bot
 
 .DEFAULT_GOAL := build
 
@@ -23,8 +23,8 @@ run:
 .PHONY: clean
 ## clean: cleans the binary
 clean:
-	echo "Cleaning"
-	go clean
+	@echo " -- Cleaning"
+	@go clean
 
 .PHONY: test
 ## test: runs go test with default values
@@ -39,7 +39,7 @@ docker-build: build
 .PHONY: docker-push
 ## docker-push: pushes the stringifier docker image to registry
 docker-push: check-environment docker-build
-	@echo "In error when push check docker login rg.nl-ams.scw.cloud/main -u nologin -p $SCW_SECRET_TOKEN"
+	@echo " -- In error when push check docker login rg.nl-ams.scw.cloud/main -u nologin -p $SCW_SECRET_TOKEN"
 	docker push ${REGISTRY}/${ENV}/${APP}:${COMMIT_SHA}
 
 .PHONY: help

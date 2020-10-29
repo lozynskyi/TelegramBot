@@ -15,7 +15,7 @@
 # vendor/
 
 # Binary aplication
-/builds
+/build
 
 # main .env file
 .env
