@@ -11,14 +11,14 @@ COMMIT_SHA=$(shell git rev-parse --short HEAD)
 ## build: build the application (default for make file)
 build: clean
 	@echo " -- Building"
-	@go build -o ./build/${APP} -v ./cmd/bot
+	@go build -o ./build/${APP} -v ./cmd/telegrambot
 
 .DEFAULT_GOAL := build
 
 .PHONY: run
 ## run: runs go run main.go
 run:
-	go run -race ./cmd/bot/main.go
+	go run -race ./cmd/telegrambot/main.go
 
 .PHONY: clean
 ## clean: cleans the binary

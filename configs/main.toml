@@ -1,2 +1,10 @@
+title = "Main Application Configuration"
+
+log_level = "debug"
+
 [telegram]
 api_url = "https://api.telegram.org/bot"
+
+[serialcomunication]
+serial_name = "/dev/ttyUSB0"
+serial_speed = 9600
