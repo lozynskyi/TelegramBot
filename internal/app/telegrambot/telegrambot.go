@@ -185,7 +185,9 @@ func respond(botURL string, update Update) error {
 }
 
 func writeToSerial(t *TelegramBot, s string) {
-	c := &serial.Config{Name: t.config.Serial.SerialName, Baud: t.config.Serial.SerialPort}
+	// t.logger.Debug(t.config.Serial.SerialName)
+	// t.logger.Debug("LOLLLLLLLL")
+	c := &serial.Config{Name: t.config.Serial.SerialName, Baud: t.config.Serial.SerialSpeed}
 	sr, err := serial.OpenPort(c)
 	if err != nil {
 		log.Fatal(err)
@@ -195,5 +197,5 @@ func writeToSerial(t *TelegramBot, s string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	t.logger.Debug("Write to serial success")
 }

@@ -15,6 +15,13 @@ build: clean
 
 .DEFAULT_GOAL := build
 
+.PHONY: build-linux
+## build: build the application (default for make file)
+build-linux: clean
+	@echo " -- Building Linux app"
+	@GOOS=linux GOARCH=386 CGO_ENABLED=0 go build -o ./build/${APP}.linux -v ./cmd/telegrambot
+
+
 .PHONY: run
 ## run: runs go run main.go
 run:

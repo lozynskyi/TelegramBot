@@ -4,7 +4,7 @@ package telegrambot
 type Config struct {
 	Title    string
 	Telegram telegram           `toml:"telegram"`
-	Serial   serialcomunication `toml:"serial"`
+	Serial   serialcomunication `toml:"serialcomunication"`
 	LogLevel string             `toml:"log_level"`
 }
 
@@ -13,8 +13,8 @@ type telegram struct {
 }
 
 type serialcomunication struct {
-	SerialName string `toml:"serial_name"`
-	SerialPort int    `toml:"serial_port"`
+	SerialName  string `toml:"serial_name"`
+	SerialSpeed int    `toml:"serial_speed"`
 }
 
 // NewConfig ...
